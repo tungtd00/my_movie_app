@@ -1,11 +1,10 @@
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:my_movie_app/appRouter.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:my_movie_app/comon/widget/movieItem.dart';
 import 'package:my_movie_app/view/homePage/homeController.dart';
+import 'package:my_movie_app/view/homePage/homeNav/homeNav.dart';
 
 class HomePage extends GetWidget{
 
@@ -13,8 +12,8 @@ class HomePage extends GetWidget{
 
   // Danh sách các trang của bạn
   final List<Widget> pages = [
-    Center(child: Text('Home Page')),
-    Center(child: Text('Search Page')),
+    HomeNavPage(),
+    const Center(child: Text('Search Page')),
     Center(child: Text('Profile Page')),
   ];
 
