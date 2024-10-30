@@ -10,7 +10,7 @@ class MovieItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=> onTap,
+      onTap: ()=> onTap(),
       child: Container(
         alignment: Alignment.center,
         width: 180,

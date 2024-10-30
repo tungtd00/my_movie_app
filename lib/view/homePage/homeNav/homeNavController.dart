@@ -26,7 +26,7 @@ String jsonData = '''
       "title": "Movie Fixed",
       "director": "Director B",
       "year": 2023,
-      "url": "https://www.youtube.com/watch?v=example1",
+      "url": "https://youtu.be/vIBLHlAVRlg?si=1oRP4Qo3XuXeDbDt",
       "image": "https://image.tmdb.org/t/p/w500/uUiIGztTrfDhPdAFJpr6m4UBMAd.jpg",
       "description": "A captivating superhero movie with intense action and humor.",
       "types": [
@@ -38,7 +38,7 @@ String jsonData = '''
       "title": "Movie Thriller",
       "director": "Director A",
       "year": 2021,
-      "url": "https://www.youtube.com/watch?v=example2",
+      "url": "https://youtu.be/vIBLHlAVRlg?si=1oRP4Qo3XuXeDbDt",
       "image": "https://phimmoi.club/wp-content/uploads/2023/10/Loki.jpg",
       "description": "A psychological thriller that keeps you on the edge of your seat.",
       "types": [

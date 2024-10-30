@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../appRouter.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../appRouter.dart';
 
 class CenteredDialog extends StatelessWidget {
   BuildContext cxt;
@@ -56,8 +56,7 @@ class CenteredDialog extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TextButton(
-                      onPressed: () =>
-                          Get.toNamed(AppRouter.TUTORIAL_SKETCH_PAGE),
+                      onPressed: () {},
                       child: Column(
                         children: [
                           Image.asset(
@@ -81,8 +80,9 @@ class CenteredDialog extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () =>
-                          Get.toNamed(AppRouter.TUTORIAL_TRACE_PAGE),
+                      onPressed: (){
+
+                      },
                       child: Column(
                         children: [
                           Image.asset(

@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:my_movie_app/appRouter.dart';
-import 'package:my_movie_app/comon/widget/movieItem.dart';
 import 'package:my_movie_app/view/homePage/homeController.dart';
 import 'package:my_movie_app/view/homePage/homeNav/homeNav.dart';
 
