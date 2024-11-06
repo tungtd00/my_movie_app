@@ -1,10 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:my_movie_app/appRouter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:my_movie_app/core/utils/dialog_rate.dart';
 
 
@@ -27,7 +25,7 @@ class SettingPage extends GetView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         title: const Text(
           "Settings",
           style: TextStyle(
@@ -46,18 +44,7 @@ class SettingPage extends GetView {
           const SizedBox(
             height: 16,
           ),
-          InkWell(
-            onTap: () =>
-                Get.toNamed(AppRouter.SET_LANGUAGE_PAGE, arguments: true),
-            child: SettingItem(
-              label: "Language options",
-              leadingAsset: "assets/svg/language.svg",
-              actionAsset: "assets/svg/arrow_forward_ios.svg",
-            ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
+      
           InkWell(
             onTap: () async => await _launchPrivacyPolicyURL(),
             child: SettingItem(

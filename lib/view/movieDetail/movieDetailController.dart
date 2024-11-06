@@ -16,7 +16,7 @@ class MovieDetailController extends GetxController {
     super.onInit();
     
     // Chuyển đổi URL YouTube thành video ID
-    final videoId = YoutubePlayer.convertUrlToId(movie.url)!;
+    final videoId = YoutubePlayer.convertUrlToId(movie.url)??"";
 
     // Khởi tạo YouTube player controller
     youtubePlayerController = YoutubePlayerController(

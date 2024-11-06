@@ -1,4 +1,7 @@
+import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:my_movie_app/appRouter.dart';
 import 'package:my_movie_app/models/movie.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -20,8 +23,10 @@ class MoviesSlider extends StatelessWidget {
       items: movie.map((element) {
         return Builder(
           builder: (BuildContext context) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
+            return InkWell(
+              onTap: (){
+                 Get.toNamed(AppRouter.MOVIE_DETAIL_PAGE, arguments: element);
+              },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12), // Bo góc ảnh
                 child: Image.network(

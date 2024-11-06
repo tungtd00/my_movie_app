@@ -1,11 +1,11 @@
 import 'package:my_movie_app/view/homePage/homePage.dart';
 import 'package:my_movie_app/view/homePage/homeBinding.dart';
-import 'package:my_movie_app/view/movieDetail/movieDetailBinding.dart';
-import 'package:my_movie_app/view/movieDetail/movieDetailPage.dart';
 import 'package:my_movie_app/view/setting/setting_page.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:my_movie_app/view/splashPage/splashPage.dart';
 import 'package:my_movie_app/view/splashPage/splashBinding.dart';
+import 'package:my_movie_app/view/movieDetail/movieDetailPage.dart';
+import 'package:my_movie_app/view/movieDetail/movieDetailBinding.dart';
 
 class AppRouter {
   static const SPLASH_PAGE = "/splash";
