@@ -1,5 +1,6 @@
 import 'package:my_movie_app/view/homePage/homePage.dart';
 import 'package:my_movie_app/view/homePage/homeBinding.dart';
+import 'package:my_movie_app/view/movieDetail/widget/full_screen_widget.dart';
 import 'package:my_movie_app/view/setting/setting_page.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:my_movie_app/view/splashPage/splashPage.dart';
@@ -17,6 +18,7 @@ class AppRouter {
   static const SET_LANGUAGE_PAGE = "/set_laguage";
   static const INTRO_PAGE = "/intro";
   static const SETTING_PAGE = "/setting_page";
+  static const MOVIE_FULL_SCREEN = "/movie_full_screen";
 
 
   static List<GetPage<dynamic>> listGetPage = [
@@ -39,9 +41,10 @@ class AppRouter {
     ),
       GetPage(
       name: AppRouter.MOVIE_DETAIL_PAGE,
-      page: () => MovieDetailScreen(), // Màn hình chi tiết phim
+      page: () => MovieDetailPage(), // Màn hình chi tiết phim
       binding: MovieDetailBinding(),   // Binding để khởi tạo controller với arguments
     ),
+
 
   ];
 }

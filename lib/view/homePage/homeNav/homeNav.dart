@@ -12,47 +12,21 @@ class HomeNavPage extends GetWidget {
   @override
   Widget build(BuildContext context) {
       return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.white,
-            title: const Text(
-              "PTIT MOVIE",
-              style: TextStyle(
-                color: Color(0xFF2970E4),
-                fontFamily: "ComicSansMS",
-                fontSize: 22,
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            actions: [
-              InkWell(
-                onTap: () {
-                  Get.toNamed(
-                    AppRouter.SETTING_PAGE,
-                  );
-                },
-                child: SvgPicture.asset(
-                  "assets/svg/settings.svg",
-                  height: 28,
-                ),
-              ),
-              const SizedBox(
-                width: 12,
-              ),
-              
-            ]),
+
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Phim nổi bật",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                SizedBox(height: 16,),
+                Divider(),
+                const Text("Phim nổi bật",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                const SizedBox(height: 16,),
                 MoviesSlider(movie: homeNavController.movies),
-                Text("Phim mới",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                SizedBox(height: 16,),
+                const SizedBox(height: 16,),
+                const Text("Phim mới",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                const SizedBox(height: 16,),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -66,9 +40,9 @@ class HomeNavPage extends GetWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 16,),
-                Text("Phim truyền hình",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                SizedBox(height: 16,),
+                const SizedBox(height: 16,),
+                const Text("Phim truyền hình",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                const SizedBox(height: 16,),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(

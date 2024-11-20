@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:my_movie_app/appRouter.dart';
+import 'package:my_movie_app/my_translate.dart';
 import 'package:my_movie_app/shareController.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,10 +17,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      translations: MyTranslations(), // Đa ngôn ngữ
+      locale: const Locale('en', 'US'), // Ngôn ngữ mặc định
+      fallbackLocale: const Locale('en', 'US'), // Ngôn ngữ dự phòng
+      theme: ThemeData.light(), // Chế độ sáng
+      darkTheme: ThemeData.dark(), // Chế độ tối
+      themeMode: ThemeMode.system, // Dựa vào hệ thống
       initialBinding: DependenciesBinding(),
       initialRoute: AppRouter.SPLASH_PAGE,
       getPages: AppRouter.listGetPage,

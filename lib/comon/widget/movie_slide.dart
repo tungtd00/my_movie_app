@@ -12,9 +12,10 @@ class MoviesSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return CarouselSlider(
       options: CarouselOptions(
-        height: 300, // Chiều cao slider
+        height: 250, // Chiều cao slider
         autoPlay: true, // Tự động chạy slide
         enlargeCenterPage: true, // Phóng to slide trung tâm
         aspectRatio: 16 / 9, // Tỷ lệ khung hình
@@ -32,7 +33,7 @@ class MoviesSlider extends StatelessWidget {
                 child: Image.network(
                   element.image,
                   fit: BoxFit.cover, // Ảnh bao phủ hết vùng
-                  width: MediaQuery.of(context).size.width, // Độ rộng của ảnh
+                  // width: MediaQuery.of(context).size.width, // Độ rộng của ảnh
                 ),
               ),
             );
