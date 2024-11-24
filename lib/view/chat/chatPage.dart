@@ -20,11 +20,12 @@ class _ChatScreenState extends State<ChatScreen> {
     _scrollToEnd();
   }
 
-  void _scrollToEnd(){
+  void _scrollToEnd() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent + 50.0, // Thêm một chút dịch
+          _scrollController.position.maxScrollExtent +
+              50.0, // Thêm một chút dịch
           duration: Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -62,10 +63,11 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Container(
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12)),
               ),
               child: AppBar(
-                title: const Text('Chat Screen'),
+                title: const Text('Chat bot'),
                 titleTextStyle: TextStyle(fontSize: 12),
                 backgroundColor: Colors.blueGrey,
               ),
@@ -76,37 +78,39 @@ class _ChatScreenState extends State<ChatScreen> {
               // Danh sách tin nhắn
               Expanded(
                 child: Obx(
-                      () {
-                        _scrollToEnd();
-                      return  ListView.builder(
-                          controller: _scrollController, // Gán ScrollController
-                          padding: const EdgeInsets.all(10),
-                          itemCount: chatController.messages.length,
-                          itemBuilder: (context, index) {
-                            final message = chatController.messages[index];
-                            return Align(
-                              alignment: index % 2 != 0
-                                  ? Alignment.centerLeft
-                                  : Alignment.centerRight,
-                              child: Container(
-                                width: Get.width*4/7,
-                                margin: const EdgeInsets.symmetric(vertical: 5),
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: index % 2 == 0
-                                      ? Colors.blue[100]
-                                      : Colors.green[100],
-                                  borderRadius: BorderRadius.circular(10),
+                  () {
+                    _scrollToEnd();
+                    return ListView.builder(
+                            controller:
+                                _scrollController, // Gán ScrollController
+                            padding: const EdgeInsets.all(10),
+                            itemCount: chatController.messages.length,
+                            itemBuilder: (context, index) {
+                              final message = chatController.messages[index];
+                              return Align(
+                                alignment: index % 2 != 0
+                                    ? Alignment.centerLeft
+                                    : Alignment.centerRight,
+                                child: Container(
+                                  width: Get.width * 4 / 7,
+                                  margin:
+                                      const EdgeInsets.symmetric(vertical: 5),
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: index % 2 == 0
+                                        ? Colors.blue[100]
+                                        : Colors.green[100],
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Text(
+                                    message,
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
                                 ),
-                                child: Text(
-                                  message,
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
+                              );
+                            },
+                          );
+                  },
                 ),
               ),
               // Ô nhập tin nhắn
@@ -118,10 +122,10 @@ class _ChatScreenState extends State<ChatScreen> {
                     Expanded(
                       child: CustomTextField(
                         controller: messageController,
-                        hintText: 'Nhập tin nhắn',
+                        hintText: 'enter_question'.tr,
                         textStyle: TextStyle(fontSize: 10),
                         contentPadding:
-                        EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -133,7 +137,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         messageController.clear(); // Xóa text sau khi gửi
                         // Cuộn đến tin nhắn cuối cùng
                         _scrollController.animateTo(
-                          _scrollController.position.maxScrollExtent+50,
+                          _scrollController.position.maxScrollExtent + 50,
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeOut,
                         );

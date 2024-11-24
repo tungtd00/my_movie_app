@@ -1,6 +1,8 @@
 import 'package:my_movie_app/view/auth/login/login_binding.dart';
 import 'package:my_movie_app/view/auth/login/login_controller.dart';
 import 'package:my_movie_app/view/auth/login/login_view.dart';
+import 'package:my_movie_app/view/auth/sign_up/sign_up_binding.dart';
+import 'package:my_movie_app/view/auth/sign_up/sign_up_view.dart';
 import 'package:my_movie_app/view/homePage/homePage.dart';
 import 'package:my_movie_app/view/homePage/homeBinding.dart';
 import 'package:my_movie_app/view/movieDetail/widget/full_screen_widget.dart';
@@ -50,6 +52,11 @@ class AppRouter {
       name: AppRouter.LOGIN,
       page: () => LoginScreen(), // Màn hình chi tiết phim
       binding: LoginBinding(),   // Binding để khởi tạo controller với arguments
+    ),
+    GetPage(
+      name: AppRouter.SIGN_UP,
+      page: () => SignUpView(), // Màn hình chi tiết phim
+      binding: SignUpBinding(),   // Binding để khởi tạo controller với arguments
     ),
 
 

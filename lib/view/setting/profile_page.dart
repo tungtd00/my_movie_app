@@ -31,7 +31,7 @@ class ProfilePage extends GetView {
           const SizedBox(
             width: 8,
           ),
-          SizedBox(
+          const SizedBox(
             height: 46,
           ),
           SvgPicture.asset(
@@ -46,26 +46,26 @@ class ProfilePage extends GetView {
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                     ),
-                    const Text(
-                      'Thành viên mới' ?? '',
+                     Text(
+                      'new_member'.tr ?? '',
                       style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                          const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                     ),
                   ],
                 )
               : Column(
                 children: [
-                  SizedBox(height: 8,),
-                  Text('Bạn chưa đăng nhập!'),
-                  SizedBox(height: 8,),
+                  const SizedBox(height: 8,),
+                  Text('not_logged_in'.tr),
+                  const SizedBox(height: 8,),
                   InkWell(
                     onTap: ()=> Get.toNamed(AppRouter.LOGIN),
                     child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        decoration: BoxDecoration(
-                            color: Colors.cyan,
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        decoration: const BoxDecoration(
+                            color: Colors.blue,
                             borderRadius: BorderRadius.all(Radius.circular(12))),
-                        child: Text('Login'),
+                        child: Text('login'.tr),
                       ),
                   ),
                 ],
@@ -77,16 +77,16 @@ class ProfilePage extends GetView {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Seting',
-                style: TextStyle(fontSize: 16),
+                'setting'.tr,
+                style: const TextStyle(fontSize: 16),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+               color: Colors.grey,
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.black26, // Màu shadow
@@ -99,18 +99,18 @@ class ProfilePage extends GetView {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     InkWell(
                       onTap: () async => await _launchPrivacyPolicyURL(),
                       child: SettingItem(
-                        label: "Privacy policy",
+                        label: 'privacy_policy'.tr,
                         leadingAsset: "assets/svg/gpp_maybe.svg",
                         isDarkMode: Get.isDarkMode,
                       ),
                     ),
-                    Divider(),
+                    const Divider(),
                     InkWell(
                       onTap: () async => await Share.share(
                           "https://pub.dev/packages/share_plus"),
@@ -120,25 +120,33 @@ class ProfilePage extends GetView {
                         isDarkMode: Get.isDarkMode,
                       ),
                     ),
-                    Divider(),
+                    const Divider(),
                     InkWell(
                       onTap: () => _showImageDialog(context),
                       child: SettingItem(
-                        label: "Rate",
+                        label: 'rate'.tr,
                         leadingAsset: "assets/svg/star_half.svg",
                         isDarkMode: Get.isDarkMode,
                       ),
                     ),
-                    Divider(),
-                    InkWell(
-                      onTap: () => _showImageDialog(context),
-                      child: SettingItem(
-                        label: "Logout",
-                        leadingAsset: "assets/svg/star_half.svg",
-                        isDarkMode: Get.isDarkMode,
+
+                    Visibility(
+                      visible: shareController.isLogin.value,
+                      child: Column(
+                        children: [
+                          const Divider(),
+                          InkWell(
+                            onTap: () => _showImageDialog(context),
+                            child: SettingItem(
+                              label: "Logout",
+                              leadingAsset: "assets/svg/logout.svg",
+                              isDarkMode: Get.isDarkMode,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     )
                   ],

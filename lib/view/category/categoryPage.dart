@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-
 import 'package:my_movie_app/view/category/categoryController.dart';
 import 'package:my_movie_app/view/categoryWidgetPage/categoryWidgetPage.dart';
 class Categorypage extends GetWidget {
@@ -8,7 +7,7 @@ class Categorypage extends GetWidget {
    final CategoryController searchController = Get.put(CategoryController());
   @override
   Widget build(BuildContext context) {
-    return  const DefaultTabController(
+    return   DefaultTabController(
       length: 5, // Số lượng tab
       child: Scaffold(
         body: Column(
@@ -16,11 +15,11 @@ class Categorypage extends GetWidget {
             TabBar(
               isScrollable: true, // Cho phép cuộn nếu các tab quá dài
               tabs: [
-                Tab(text: 'Chiến tranh'), // Tab 1
-                Tab(text: 'Nhân vật'),   // Tab 2
-                Tab(text: 'Truyền thuyết'), // Tab 3
-                Tab(text: 'Đời sống'),  // Tab 4
-                Tab(text: 'Tư liệu'),   // Tab 5
+                Tab(text: 'war'.tr), // Tab 1
+                Tab(text: 'character'.tr),   // Tab 2
+                Tab(text: 'legend'.tr), // Tab 3
+                Tab(text: 'life'.tr),  // Tab 4
+                Tab(text: 'document'.tr),   // Tab 5
               ],
             ),
             Expanded(

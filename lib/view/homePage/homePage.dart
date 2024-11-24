@@ -99,26 +99,26 @@ class _HomePageState extends State<HomePage> {
           onTap: homeController.changeTab,
           selectedItemColor: Colors.blueAccent,
           unselectedItemColor: Colors.grey,
-          items: const [
+          items:  [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Home',
+              label: 'home'.tr,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.menu_outlined),
-              label: 'Category',
+              label: 'category'.tr,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
-              label: 'Search',
+              label: 'search'.tr,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border),
-              label: 'Favourite',
+              label: 'favourite'.tr,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: 'Profile',
+              label: 'profile'.tr,
             ),
           ],
         ),

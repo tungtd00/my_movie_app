@@ -5,9 +5,6 @@ import 'package:my_movie_app/shareController.dart';
 import 'package:my_movie_app/view/splashPage/splashController.dart';
 
 
-
-
-
 class Splash extends GetWidget {
   SplashController controller = Get.find();
   ShareController shareController = Get.find();
@@ -49,12 +46,12 @@ class Splash extends GetWidget {
                         Obx(
                           () => Visibility(
                             visible: controller.isViewNameApp.value,
-                            child: const Padding(
+                            child:  Padding(
                               padding: EdgeInsets.symmetric(horizontal: 36),
                               child: Text(
-                                "Xem phim online mọi lúc mọi nơi",
+                                'watch_anytime'.tr,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color(0xFF2970E4),
                                   fontFamily: "ComicSansMS",
                                   fontSize: 24,
@@ -86,9 +83,9 @@ class Splash extends GetWidget {
                       ),
                       Container(
                         alignment: Alignment.bottomCenter,
-                        child: const Text(
-                          "Chúc mọi người xem phim vui vẻ",
-                          style: TextStyle(
+                        child:  Text(
+                          'enjoy_movies'.tr,
+                          style: const TextStyle(
                             color: Color(0xFF2970E4),
                             fontFamily: "ComicSansMS",
                             fontSize: 14,

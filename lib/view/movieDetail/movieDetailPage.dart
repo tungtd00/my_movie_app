@@ -184,7 +184,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              'Director: ${movie.director}',
+                              '${'director'.tr} : ${movie.director}',
                               style: const TextStyle(fontSize: 16),
                             ),
                             const SizedBox(height: 8),
@@ -198,7 +198,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Year: ${movie.year}',
+                            '${'year'.tr}: ${movie.year}',
                             style: const TextStyle(fontSize: 16),
                           ),
                           const SizedBox(height: 16),
@@ -208,8 +208,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                           ),
                           const SizedBox(height: 16),
                           movie.types != null
-                              ? const Text(
-                                  'Types:',
+                              ?  Text(
+                                  '${'types'.tr}:',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold),

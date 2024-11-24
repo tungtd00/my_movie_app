@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_movie_app/appRouter.dart';
 import 'package:my_movie_app/comon/widget/textfield_custom.dart';
-import 'package:my_movie_app/view/auth/login/login_controller.dart';
+import 'package:my_movie_app/view/auth/sign_up/sign_up_controller.dart';
 
-class LoginScreen extends StatelessWidget {
+class SignUpView extends StatelessWidget {
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final LoginController loginController = Get.put(LoginController());
+  final TextEditingController confirmPasswordController = TextEditingController();
 
+  final SignUpController signUpController = Get.put(SignUpController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +20,9 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 80),
                Text(
-                'welcome_back'.tr,
+                'create_account'.tr,
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -29,12 +31,19 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
                Text(
-                'login_prompt'.tr,
+                'register_details'.tr,
                 style: TextStyle(fontSize: 16, color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 40),
               Text('user_name'.tr),
+              const SizedBox(height: 4),
+              CustomTextField(
+                controller: usernameController,
+                keyboardType: TextInputType.text,
+              ),
+              const SizedBox(height: 16),
+              Text('Email'),
               const SizedBox(height: 4),
               CustomTextField(
                 controller: emailController,
@@ -48,28 +57,27 @@ class LoginScreen extends StatelessWidget {
                 isPassword: true,
               ),
               const SizedBox(height: 16),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    // Xử lý khi nhấn "Quên mật khẩu"
-                  },
-                  child: const Text('Forgot Password?'),
-                ),
+              Text('confirm_password'.tr),
+              const SizedBox(height: 4),
+              CustomTextField(
+                controller: confirmPasswordController,
+                isPassword: true,
               ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  // Xử lý khi nhấn nút đăng nhập
                   String email = emailController.text;
                   String password = passwordController.text;
-                  loginController.login(email, password);
+                  String username = usernameController.text;
+                  String rePassword = confirmPasswordController.text;
+                  signUpController.signUp(email, password,username,rePassword);
+
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                 ),
                 child:  Text(
-                  'login'.tr,
+                  'sign_up'.tr,
                   style: TextStyle(fontSize: 18),
                 ),
               ),
@@ -77,13 +85,14 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   Text('dont_have_account'.tr),
+                   Text('already_have_account'.tr),
                   TextButton(
                     onPressed: () {
-                      // Xử lý khi nhấn "Đăng ký"
-                      Get.offAndToNamed(AppRouter.SIGN_UP);
+                      // Xử lý khi nhấn "Đăng nhập"
+                      // Navigator.pop(context);
+                      Get.offAndToNamed(AppRouter.LOGIN);
                     },
-                    child:  Text('sign_up'.tr),
+                    child:  Text('login'.tr),
                   ),
                 ],
               ),

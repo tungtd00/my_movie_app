@@ -33,9 +33,9 @@ class Searchpage extends GetWidget {
                         ),
                         child: TextField(
                           controller: searchController.textcontroller,
-                          decoration: const InputDecoration(
+                          decoration:   InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Nhập phim bạn muốn tìm',
+                            hintText: 'enter_movie_to_search'.tr,
                           ),
                         ),
 

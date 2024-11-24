@@ -12,7 +12,7 @@ class FavouritePage extends GetWidget {
     return Scaffold(
       body: favouriteController.movies.value.isEmpty
           ? Center(
-              child: Text('Chưa có bộ phim yêu thích nào!'),
+              child: Text('no_favourite_movies'.tr),
             )
           : Container(
               padding: const EdgeInsets.all(16),

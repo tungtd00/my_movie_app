@@ -39,7 +39,7 @@ class _DialogRateMovieState extends State<DialogRateMovie> {
           ),
           const Text(
               textAlign: TextAlign.center,
-              'Bạn thấy phim này như thế nào?',
+              '',
               style: TextStyle(
                 color: Color(0xFF2970E4),
                 fontFamily: "ComicSansMS",
@@ -148,9 +148,9 @@ class _DialogRateMovieState extends State<DialogRateMovie> {
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
                     color: Color(0xFF2970E4)),
-                child: const Text(
+                child:  Text(
                   textAlign: TextAlign.center,
-                  "RATE",
+                  'rate'.tr,
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: "ComicSansMS",
@@ -165,8 +165,8 @@ class _DialogRateMovieState extends State<DialogRateMovie> {
           ),
           InkWell(
             onTap: () => Get.back(),
-            child: const Text(
-              "Maybe later",
+            child:  Text(
+              'Maybe later'.tr,
               style: TextStyle(
                 color: Color(0xFF4C8DF8),
                 fontFamily: "ComicSansMS",
