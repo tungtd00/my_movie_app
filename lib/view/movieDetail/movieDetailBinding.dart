@@ -6,8 +6,8 @@ class MovieDetailBinding extends Bindings {
   @override
   void dependencies() {
     // Lấy argument từ Get.arguments (là đối tượng Movie)
-    Movie movie = Get.arguments as Movie;
-    Get.lazyPut(() => MovieDetailController(movie));
+
+    Get.lazyPut(() => MovieDetailController());
   }
 }
   

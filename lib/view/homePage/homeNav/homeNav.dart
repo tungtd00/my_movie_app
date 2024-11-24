@@ -20,7 +20,7 @@ class HomeNavPage extends GetWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Divider(),
+                SizedBox(height: 16,),
                 const Text("Phim nổi bật",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                 const SizedBox(height: 16,),
                 MoviesSlider(movie: homeNavController.movies),

@@ -14,9 +14,6 @@ class Searchpage extends GetWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            const SizedBox(
-              height: 32,
-            ),
             SizedBox(
               height: 40,
               child: Row(

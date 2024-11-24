@@ -23,7 +23,7 @@ class MovieItem extends StatelessWidget {
               borderRadius:  BorderRadius.circular(12),
               child: Image.network(imageUrl,fit: BoxFit.fill,height:212 ,width:170,)),
             Text(name,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),maxLines: 2,),
-            Text(year.toString(),style: TextStyle(fontSize: 14),)
+
     
           ],
         ),

@@ -1,36 +1,27 @@
+import 'dart:convert';
 
 import 'package:get/get.dart';
-
-import 'package:my_movie_app/core/service/hive_service.dart';
+import 'package:flutter/material.dart';
 import 'package:my_movie_app/models/movie.dart';
 
-class FavouriteController extends GetxController {
+class CategoryWidgetController extends GetxController {
+  TextEditingController textcontroller = TextEditingController();
   var movies = <Movie>[].obs;
-  final hiveService = HiveService();
+  RxInt indexTab = 0.obs;
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    hiveService.closeBox();
-  }
   @override
   void onInit() {
+    // TODO: implement onInit
     super.onInit();
-    final movieHive =  hiveService.getAllFavorites();
-    movies.value = movieHive.map((e)=> e.toMovie()).toList();
 
     // Chuyển đổi JSON thành danh sách đối tượng Movie
-    // List<dynamic> jsonList = jsonDecode(jsonData);
-    //
-    // // Chuyển đổi danh sách json thành List<Movie>
-    // movies.value = jsonList.map((json) => Movie.fromJson(json)).toList();
-
+    List<dynamic> jsonList = jsonDecode(jsonData);
+    // Chuyển đổi danh sách json thành List<Movie>
+    movies.value = jsonList.map((json) => Movie.fromJson(json)).toList();
   }
-
-  void loadFavorites() {
-    final movieHive = hiveService.getAllFavorites();
-    movies.value = movieHive.map((e) => e.toMovie()).toList();
+  Future<void> init(int indexPage)async{
+    indexTab.value = indexPage;
+    //get data by index
   }
 
   String jsonData = '''

@@ -1,69 +1,40 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:my_movie_app/appRouter.dart';
-import 'package:my_movie_app/comon/widget/movieItem.dart';
-import 'package:my_movie_app/view/searchPage/searchController.dart';
 
+import 'package:my_movie_app/view/category/categoryController.dart';
+import 'package:my_movie_app/view/categoryWidgetPage/categoryWidgetPage.dart';
 class Categorypage extends GetWidget {
 
-   final SearchMovieController searchController = Get.put(SearchMovieController());
+   final CategoryController searchController = Get.put(CategoryController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
+    return  const DefaultTabController(
+      length: 5, // Số lượng tab
+      child: Scaffold(
+        body: Column(
           children: [
-            const SizedBox(
-              height: 32,
+            TabBar(
+              isScrollable: true, // Cho phép cuộn nếu các tab quá dài
+              tabs: [
+                Tab(text: 'Chiến tranh'), // Tab 1
+                Tab(text: 'Nhân vật'),   // Tab 2
+                Tab(text: 'Truyền thuyết'), // Tab 3
+                Tab(text: 'Đời sống'),  // Tab 4
+                Tab(text: 'Tư liệu'),   // Tab 5
+              ],
             ),
-            SizedBox(
-              height: 40,
-              child: Row(
+            Expanded(
+              child: TabBarView(
                 children: [
-                  const Icon(Icons.close),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(24)),
-                            border: Border.all(color: Get.isDarkMode? Colors.white: Colors.black)),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 2
-                        ),
-                        child: TextField(
-                          controller: searchController.textcontroller,
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Nhập phim bạn muốn tìm',
-                          ),
-                        ),
-
-                      )),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const Icon(Icons.search)
+                  // Nội dung từng tab
+                  CategoryWidgetPage(indexPage: 0,),
+                  CategoryWidgetPage(indexPage: 1,),
+                  CategoryWidgetPage(indexPage: 2,),
+                  CategoryWidgetPage(indexPage: 3,),
+                  CategoryWidgetPage(indexPage: 4,),
                 ],
               ),
             ),
-            const SizedBox(height: 16,),
-            Expanded(child: GridView.count(
-              crossAxisCount: 2, // Số cột trong một hàng
-              crossAxisSpacing: 10, // Khoảng cách giữa các cột
-              mainAxisSpacing: 10, // Khoảng cách giữa các hàng
-              padding: const EdgeInsets.all(10),
-              childAspectRatio: 170/340,
-              children: [
-                ...searchController.movies.map((e) =>
-                    MovieItem(imageUrl: e.image, name: e.title, year: e.year, onTap: (){
-                      Get.toNamed(AppRouter.MOVIE_DETAIL_PAGE, arguments: e);
-                    })),
-              ],
-            ),)
           ],
         ),
       ),

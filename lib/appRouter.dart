@@ -1,7 +1,10 @@
+import 'package:my_movie_app/view/auth/login/login_binding.dart';
+import 'package:my_movie_app/view/auth/login/login_controller.dart';
+import 'package:my_movie_app/view/auth/login/login_view.dart';
 import 'package:my_movie_app/view/homePage/homePage.dart';
 import 'package:my_movie_app/view/homePage/homeBinding.dart';
 import 'package:my_movie_app/view/movieDetail/widget/full_screen_widget.dart';
-import 'package:my_movie_app/view/setting/setting_page.dart';
+import 'package:my_movie_app/view/setting/profile_page.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:my_movie_app/view/splashPage/splashPage.dart';
 import 'package:my_movie_app/view/splashPage/splashBinding.dart';
@@ -19,6 +22,8 @@ class AppRouter {
   static const INTRO_PAGE = "/intro";
   static const SETTING_PAGE = "/setting_page";
   static const MOVIE_FULL_SCREEN = "/movie_full_screen";
+  static const LOGIN = "/LOGIN";
+  static const SIGN_UP = "/SIGN_UP";
 
 
   static List<GetPage<dynamic>> listGetPage = [
@@ -35,14 +40,16 @@ class AppRouter {
     //     page: () => IntroPage(),
     //     binding: IntroBinding()),
     //
-    GetPage(
-      name: AppRouter.SETTING_PAGE,
-      page: () => SettingPage(),
-    ),
+
       GetPage(
       name: AppRouter.MOVIE_DETAIL_PAGE,
       page: () => MovieDetailPage(), // Màn hình chi tiết phim
       binding: MovieDetailBinding(),   // Binding để khởi tạo controller với arguments
+    ),
+    GetPage(
+      name: AppRouter.LOGIN,
+      page: () => LoginScreen(), // Màn hình chi tiết phim
+      binding: LoginBinding(),   // Binding để khởi tạo controller với arguments
     ),
 
 
