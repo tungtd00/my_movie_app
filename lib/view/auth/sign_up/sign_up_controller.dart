@@ -1,24 +1,25 @@
 import 'package:get/get.dart';
+import 'package:my_movie_app/core/service/api_service.dart';
 import 'package:my_movie_app/core/utils/common_dialog.dart';
 
 class SignUpController extends GetxController {
   Future<void> signUp(String email, String userName, String password, String confirmPassword) async {
     // Validate email
-    if (email.isEmpty) {
-      CommonDialog.showErrorDialog(
-        'Validation Error',
-        'Please enter your email.',
-      );
-      return;
-    }
+    // if (email.isEmpty) {
+    //   CommonDialog.showErrorDialog(
+    //     'Validation Error',
+    //     'Please enter your email.',
+    //   );
+    //   return;
+    // }
 
-    if (!GetUtils.isEmail(email)) {
-      CommonDialog.showErrorDialog(
-        'Validation Error',
-        'Please enter a valid email address.',
-      );
-      return;
-    }
+    // if (!GetUtils.isEmail(email)) {
+    //   CommonDialog.showErrorDialog(
+    //     'Validation Error',
+    //     'Please enter a valid email address.',
+    //   );
+    //   return;
+    // }
 
     // Validate username
     if (userName.isEmpty) {
@@ -96,8 +97,9 @@ class SignUpController extends GetxController {
 
   // Simulated sign-up API for demonstration
   Future<bool> _mockSignUpApi(String email, String userName, String password) async {
-    await Future.delayed(const Duration(seconds: 2)); // Simulate network delay
-    // Mock success if username and email are "unique"
-    return email != 'existing@example.com' && userName != 'existingUser';
+    // await Future.delayed(const Duration(seconds: 2)); // Simulate network delay
+    // // Mock success if username and email are "unique"
+    // return email != 'existing@example.com' && userName != 'existingUser';
+    return await ApiService.register(userName, password);
   }
 }

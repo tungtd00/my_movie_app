@@ -1,15 +1,25 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:get/get.dart';
+import 'package:my_movie_app/core/service/api_service.dart';
 import 'package:my_movie_app/models/movie.dart';
 
 
 class HomeNavController extends GetxController{
   var movies = <Movie>[].obs;
+  RxList<Movie> newMovies = <Movie>[].obs;
+  RxList<Movie> randomMovies = <Movie>[].obs;
 
   @override
-  void onInit() {
-    // TODO: implement onInit
+  Future<void> onInit() async {
     super.onInit();
+    // get all movie
+    // List<Movie> movieResponse = await ApiService.getAllMovies();
+    // movies.addAll(movieResponse) ;
+    // newMovies.value = getNewMovies(movies.value);
+    // randomMovies.value = getRandomMovies(movies);
+
+
 
     // Chuyển đổi JSON thành danh sách đối tượng Movie
   List<dynamic> jsonList = jsonDecode(jsonData);
@@ -18,8 +28,28 @@ class HomeNavController extends GetxController{
    movies.value = jsonList.map((json) => Movie.fromJson(json)).toList();
 
   }
-  
-String jsonData = '''
+
+  // Hàm lấy danh sách 5 phim mới nhất
+  List<Movie> getNewMovies(List<Movie> movies) {
+    // Lọc danh sách phim có giá trị `year` không null, sau đó sắp xếp theo năm giảm dần
+    final sortedMovies = movies.where((movie) => movie.year != null).toList()
+      ..sort((a, b) => b.year!.compareTo(a.year!));
+
+    // Lấy tối đa 5 phim
+    return sortedMovies.take(5).toList();
+  }
+
+// Hàm lấy danh sách 5 phim ngẫu nhiên
+  List<Movie> getRandomMovies(List<Movie> movies) {
+    final random = Random();
+    final randomMovies = movies.toList()..shuffle(random);
+
+    // Lấy tối đa 5 phim
+    return randomMovies.take(5).toList();
+  }
+
+
+  String jsonData = '''
  [
   {
     "id": 1,

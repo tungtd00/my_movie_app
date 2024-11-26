@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:my_movie_app/core/service/api_service.dart';
 import 'package:my_movie_app/models/movie.dart';
 
 class SearchMovieController extends GetxController {
@@ -10,7 +11,6 @@ class SearchMovieController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
 
     // Chuyển đổi JSON thành danh sách đối tượng Movie
@@ -19,6 +19,9 @@ class SearchMovieController extends GetxController {
     // Chuyển đổi danh sách json thành List<Movie>
     movies.value = jsonList.map((json) => Movie.fromJson(json)).toList();
 
+  }
+  Future<void> search()async {
+    movies.value = await ApiService.searchMovies(textcontroller.text);
   }
 
   String jsonData = '''

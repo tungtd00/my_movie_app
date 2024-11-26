@@ -45,6 +45,8 @@ class MyTranslations extends Translations {
       'legend': 'Legend',
       'life': 'Life',
       'document': 'Document',
+      "new_movies": "New Movies",
+      "random_movies": "Random Movies"
 
     },
     'vi_VN': {
@@ -89,6 +91,8 @@ class MyTranslations extends Translations {
       'legend': 'Truyền thuyết',
       'life': 'Đời sống',
       'document': 'Tư liệu',
+      "new_movies": "Phim mới",
+      "random_movies": "Phim ngẫu nhiên"
     },
   };
 }

@@ -42,13 +42,13 @@ class SignUpView extends StatelessWidget {
                 controller: usernameController,
                 keyboardType: TextInputType.text,
               ),
-              const SizedBox(height: 16),
-              Text('Email'),
-              const SizedBox(height: 4),
-              CustomTextField(
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-              ),
+              // const SizedBox(height: 16),
+              // Text('Email'),
+              // const SizedBox(height: 4),
+              // CustomTextField(
+              //   controller: emailController,
+              //   keyboardType: TextInputType.emailAddress,
+              // ),
               const SizedBox(height: 16),
               Text('password'.tr),
               const SizedBox(height: 4),
@@ -70,7 +70,7 @@ class SignUpView extends StatelessWidget {
                   String password = passwordController.text;
                   String username = usernameController.text;
                   String rePassword = confirmPasswordController.text;
-                  signUpController.signUp(email, password,username,rePassword);
+                  signUpController.signUp(email,username, password,rePassword);
 
                 },
                 style: ElevatedButton.styleFrom(

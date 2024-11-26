@@ -8,11 +8,11 @@ class CategoryController extends GetxController {
   TextEditingController textcontroller = TextEditingController();
   var movies = <Movie>[].obs;
 
+
   @override
-  void onInit() {
+  Future<void> onInit() async {
     // TODO: implement onInit
     super.onInit();
-
     // Chuyển đổi JSON thành danh sách đối tượng Movie
     List<dynamic> jsonList = jsonDecode(jsonData);
 

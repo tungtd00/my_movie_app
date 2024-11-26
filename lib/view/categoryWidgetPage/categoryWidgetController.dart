@@ -2,11 +2,13 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:my_movie_app/core/service/api_service.dart';
 import 'package:my_movie_app/models/movie.dart';
 
 class CategoryWidgetController extends GetxController {
   TextEditingController textcontroller = TextEditingController();
   var movies = <Movie>[].obs;
+  RxList<Movie> moviesTab =  <Movie>[].obs;
   RxInt indexTab = 0.obs;
 
   @override
@@ -21,6 +23,7 @@ class CategoryWidgetController extends GetxController {
   }
   Future<void> init(int indexPage)async{
     indexTab.value = indexPage;
+    // moviesTab.value = await ApiService.fetchMoviesByType(indexPage);
     //get data by index
   }
 

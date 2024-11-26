@@ -1,7 +1,11 @@
 import 'package:get/get.dart';
+import 'package:my_movie_app/appRouter.dart';
+import 'package:my_movie_app/core/service/api_service.dart';
 import 'package:my_movie_app/core/utils/common_dialog.dart';
+import 'package:my_movie_app/shareController.dart';
 
 class LoginController extends GetxController {
+  final ShareController shareController = Get.put(ShareController());
   Future<void> login(String userName, String password) async {
     // Validate input fields
     if (userName.isEmpty) {
@@ -31,11 +35,12 @@ class LoginController extends GetxController {
     // Call API or handle login logic here
     try {
       // Simulate API call or login process
-      bool isLoginSuccessful = await _mockLoginApi(userName, password);
+      bool isLoginSuccessful = await loginApi(userName, password);
 
       if (isLoginSuccessful) {
         // Navigate to home screen or do something
-        Get.offAllNamed('/home'); // Replace '/home' with your route
+        shareController.saveLogin(userName);
+        Get.offAllNamed(AppRouter.HOME_PAGE); // Replace '/home' with your route
       } else {
         CommonDialog.showErrorDialog(
           'Login Failed',
@@ -49,6 +54,10 @@ class LoginController extends GetxController {
         'Something went wrong. Please try again later.',
       );
     }
+  }
+  Future<bool> loginApi(String userName, String password) async {
+    return await ApiService.login(userName, password);
+
   }
 
   // Simulated login API for demonstration

@@ -12,8 +12,16 @@ class CategoryWidgetPage extends StatefulWidget {
   @override
   State<CategoryWidgetPage> createState() => _CategoryWidgetPageState();
 }
-
+final CategoryWidgetController categoryWidgetController = Get.put(CategoryWidgetController());
 class _CategoryWidgetPageState extends State<CategoryWidgetPage> {
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    categoryWidgetController.init(widget.indexPage);
+  }
   @override
   Widget build(BuildContext context) {
     final CategoryWidgetController categoryController = Get.put(CategoryWidgetController());

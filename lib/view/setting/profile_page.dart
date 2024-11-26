@@ -38,38 +38,38 @@ class ProfilePage extends GetView {
             'assets/svg/avatar.svg',
             height: 56,
           ),
-          shareController.isLogin.value
+          Obx(()=> shareController.isLogin.value
               ? Column(
-                  children: [
-                    const Text(
-                      'Tùng do' ?? '',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-                    ),
-                     Text(
-                      'new_member'.tr ?? '',
-                      style:
-                          const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-                    ),
-                  ],
-                )
-              : Column(
-                children: [
-                  const SizedBox(height: 8,),
-                  Text('not_logged_in'.tr),
-                  const SizedBox(height: 8,),
-                  InkWell(
-                    onTap: ()=> Get.toNamed(AppRouter.LOGIN),
-                    child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        decoration: const BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.all(Radius.circular(12))),
-                        child: Text('login'.tr),
-                      ),
-                  ),
-                ],
+            children: [
+              Text(
+                shareController.username.value,
+                style:
+                TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
+              Text(
+                'new_member'.tr ?? '',
+                style:
+                const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              ),
+            ],
+          )
+              : Column(
+            children: [
+              const SizedBox(height: 8,),
+              Text('not_logged_in'.tr),
+              const SizedBox(height: 8,),
+              InkWell(
+                onTap: ()=> Get.toNamed(AppRouter.LOGIN),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                  child: Text('login'.tr),
+                ),
+              ),
+            ],
+          ),),
           const SizedBox(
             height: 46,
           ),
@@ -130,22 +130,47 @@ class ProfilePage extends GetView {
                       ),
                     ),
 
-                    Visibility(
+                    Obx(()=>Visibility(
                       visible: shareController.isLogin.value,
                       child: Column(
                         children: [
                           const Divider(),
                           InkWell(
-                            onTap: () => _showImageDialog(context),
-                            child: SettingItem(
-                              label: "Logout",
-                              leadingAsset: "assets/svg/logout.svg",
-                              isDarkMode: Get.isDarkMode,
+                            onTap: () => shareController.logout(),
+                            child:Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                              // decoration:  BoxDecoration(
+                              //     borderRadius: const BorderRadius.all(Radius.circular(12)),
+                              //     color: isDarkMode? Colors.black: Colors.grey[100],
+                              // ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset("assets/svg/logout.svg",color: Colors.blue,),
+                                      const SizedBox(
+                                        width: 16,
+                                      ),
+                                      Text(
+                                        'logout'.tr,
+                                        style: const TextStyle(
+                                          // color: Color(0xFF2970E4),
+                                          fontFamily: "ComicSansMS",
+                                          fontSize: 18,
+                                          fontStyle: FontStyle.normal,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
                       ),
-                    ),
+                    ),),
                     const SizedBox(
                       height: 8,
                     )
@@ -195,7 +220,7 @@ class SettingItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              SvgPicture.asset(leadingAsset),
+              SvgPicture.asset(leadingAsset,color: Colors.blue,),
               const SizedBox(
                 width: 16,
               ),
@@ -215,7 +240,7 @@ class SettingItem extends StatelessWidget {
               ? Container()
               : Row(
                   children: [
-                    SvgPicture.asset(actionAsset!),
+                    SvgPicture.asset(actionAsset!,height: 18,fit: BoxFit.fitHeight,),
                     const SizedBox(
                       width: 8,
                     ),

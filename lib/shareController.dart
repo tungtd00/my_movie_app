@@ -9,6 +9,7 @@ class ShareController extends GetxController {
   RxString icon = ''.obs;
   RxBool isDarkMode = false.obs;
   RxBool isLogin = false.obs;
+  RxString username = ''.obs;
 
   RxInt star = 0.obs;
   @override
@@ -25,6 +26,8 @@ class ShareController extends GetxController {
     isDarkMode.value = darkMode== 'false'? false :true;
     !isDarkMode.value? Get.changeThemeMode(ThemeMode.light)
         : Get.changeThemeMode(ThemeMode.dark);
+    username.value = await StorageService.getString("username")??'';
+    isLogin.value =  username.value.isNotEmpty? true:false;
   }
 
   void changedStar(int number) {
@@ -45,6 +48,16 @@ class ShareController extends GetxController {
     StorageService.saveString("language",locale.languageCode);
 
     Get.updateLocale(locale);
+  }
+  Future<void> saveLogin(String name)async{
+    StorageService.saveString("username",name);
+    isLogin.value = true;
+    username.value = name;
+  }
+ Future<void> logout()async{
+    isLogin.value = false;
+    username.value ='';
+    StorageService.remove("username");
   }
 
 }
